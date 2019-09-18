@@ -7,7 +7,6 @@
 //
 
 #import "TPOSCreateWalletViewController.h"
-#import "TPOSBackupWalletViewController.h"
 #import "TPOSPasswordView.h"
 #import "UIColor+Hex.h"
 #import "TPOSH5ViewController.h"

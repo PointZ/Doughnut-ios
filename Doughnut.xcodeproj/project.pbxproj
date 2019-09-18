@@ -204,6 +204,8 @@
 		D08DC91D204BE7B3008A27B2 /* TencentOpenAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D08DC91C204BE7B3008A27B2 /* TencentOpenAPI.framework */; };
 		D08DC91F204BE81A008A27B2 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D08DC91E204BE81A008A27B2 /* SystemConfiguration.framework */; };
 		D0F5E117201C9CB700C60EA6 /* LocalAuthentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0F5E116201C9CB700C60EA6 /* LocalAuthentication.framework */; };
+		E9463C3E232731D50021D3EB /* TPOSKeystoreImportWalletViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E9463C3C232731D50021D3EB /* TPOSKeystoreImportWalletViewController.m */; };
+		E9463C3F232731D50021D3EB /* TPOSKeystoreImportWalletViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9463C3D232731D50021D3EB /* TPOSKeystoreImportWalletViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -548,6 +550,9 @@
 		D08DC91C204BE7B3008A27B2 /* TencentOpenAPI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TencentOpenAPI.framework; path = TokenBank/Vendor/Tencent/TencentOpenAPI.framework; sourceTree = "<group>"; };
 		D08DC91E204BE81A008A27B2 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		D0F5E116201C9CB700C60EA6 /* LocalAuthentication.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LocalAuthentication.framework; path = System/Library/Frameworks/LocalAuthentication.framework; sourceTree = SDKROOT; };
+		E9463C3B232731D50021D3EB /* TPOSKeystoreImportWalletViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPOSKeystoreImportWalletViewController.h; sourceTree = "<group>"; };
+		E9463C3C232731D50021D3EB /* TPOSKeystoreImportWalletViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPOSKeystoreImportWalletViewController.m; sourceTree = "<group>"; };
+		E9463C3D232731D50021D3EB /* TPOSKeystoreImportWalletViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TPOSKeystoreImportWalletViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1272,22 +1277,22 @@
 		D063A7C1218E022800750001 /* Wallet */ = {
 			isa = PBXGroup;
 			children = (
+				D063A7C5218E022800750001 /* ImportWallet */,
 				D063A7C2218E022800750001 /* TPOSConfirmMemonicViewController.m */,
 				D063A7C3218E022800750001 /* TPOSImportWalletViewController.m */,
+				D063A7D6218E022800750001 /* TPOSImportWalletViewController.h */,
 				D063A7C4218E022800750001 /* TPOSCreateMemonicViewController.xib */,
-				D063A7C5218E022800750001 /* ImportWallet */,
 				D063A7CE218E022800750001 /* TPOSConfirmMemonicViewController.xib */,
 				D063A7CF218E022800750001 /* TPOSCreateMemonicViewController.h */,
 				D063A7D0218E022800750001 /* TPOSSelectChainTypeViewController.h */,
-				D063A7D1218E022800750001 /* TPOSCreateWalletViewController.m */,
 				D063A7D2218E022800750001 /* TPOSBackupWalletViewController.m */,
 				D063A7D3218E022800750001 /* TPOSChooseTokenSystemViewController.h */,
 				D063A7D4218E022800750001 /* TPOSBackupWalletViewController.xib */,
-				D063A7D5218E022800750001 /* TPOSCreateWalletViewController.xib */,
-				D063A7D6218E022800750001 /* TPOSImportWalletViewController.h */,
 				D063A7D7218E022800750001 /* TPOSConfirmMemonicViewController.h */,
 				D063A7D8218E022800750001 /* TPOSBackupWalletViewController.h */,
 				D063A7D9218E022800750001 /* TPOSSelectChainTypeViewController.m */,
+				D063A7D5218E022800750001 /* TPOSCreateWalletViewController.xib */,
+				D063A7D1218E022800750001 /* TPOSCreateWalletViewController.m */,
 				D063A7DA218E022800750001 /* TPOSCreateWalletViewController.h */,
 				D063A7DB218E022800750001 /* TPOSCreateMemonicViewController.m */,
 				D063A7DC218E022800750001 /* TPOSChooseTokenSystemViewController.m */,
@@ -1298,6 +1303,7 @@
 		D063A7C5218E022800750001 /* ImportWallet */ = {
 			isa = PBXGroup;
 			children = (
+				E9463C2F23272CC20021D3EB /* Keystore */,
 				D063A7C6218E022800750001 /* Memonic */,
 				D063A7CA218E022800750001 /* PK */,
 			);
@@ -1318,8 +1324,8 @@
 			isa = PBXGroup;
 			children = (
 				D063A7CB218E022800750001 /* TPOSPrivateKeyImportWalletViewController.h */,
-				D063A7CC218E022800750001 /* TPOSPrivateKeyImportWalletViewController.xib */,
 				D063A7CD218E022800750001 /* TPOSPrivateKeyImportWalletViewController.m */,
+				D063A7CC218E022800750001 /* TPOSPrivateKeyImportWalletViewController.xib */,
 			);
 			path = PK;
 			sourceTree = "<group>";
@@ -1399,6 +1405,16 @@
 				D063A814218E022800750001 /* TPOSChooseTokenSystemCell.m */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		E9463C2F23272CC20021D3EB /* Keystore */ = {
+			isa = PBXGroup;
+			children = (
+				E9463C3B232731D50021D3EB /* TPOSKeystoreImportWalletViewController.h */,
+				E9463C3C232731D50021D3EB /* TPOSKeystoreImportWalletViewController.m */,
+				E9463C3D232731D50021D3EB /* TPOSKeystoreImportWalletViewController.xib */,
+			);
+			path = Keystore;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1494,6 +1510,7 @@
 				D063A82E218E022800750001 /* TPOSMemonicImportWalletViewController.xib in Resources */,
 				D063A4BA218E004700750001 /* mnemonic.js in Resources */,
 				9E42CAB721BB70A700267076 /* TBShareMenuView.xib in Resources */,
+				E9463C3F232731D50021D3EB /* TPOSKeystoreImportWalletViewController.xib in Resources */,
 				9E40006B21C22F83005B2311 /* TPOSAuthPasswordViewController.xib in Resources */,
 				D063A831218E022800750001 /* TPOSConfirmMemonicViewController.xib in Resources */,
 				D063A77D218E00C800750001 /* TPOSProtocolViewController.xib in Resources */,
@@ -1584,6 +1601,7 @@
 				D063A56E218E005E00750001 /* SGQRCodeAlbumManager.m in Sources */,
 				D063A6F7218E006A00750001 /* TPOSSegmentTitleView.m in Sources */,
 				D063A777218E00C800750001 /* TPOSForceCreateWalletViewController.m in Sources */,
+				E9463C3E232731D50021D3EB /* TPOSKeystoreImportWalletViewController.m in Sources */,
 				D063A6CB218E006900750001 /* TPOSScanQRCodeViewController.m in Sources */,
 				D063A6C3218E006900750001 /* TPOSTransactionViewController.m in Sources */,
 				D063A851218E022800750001 /* TPOSContentView.m in Sources */,

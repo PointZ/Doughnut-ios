@@ -14,3 +14,4 @@
 @property (nonatomic, strong) TPOSBlockChainModel *blockchain;
 @property (nonatomic, strong) NSString *scanResult;
 @end
+
