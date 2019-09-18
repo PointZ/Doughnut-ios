@@ -22,6 +22,7 @@
 #import "TPOSWalletModel.h"
 #import "NJOPasswordStrengthEvaluator.h"
 #import "TPOSPasswordView.h"
+#import "TPOSBackupAlert.h"
 #import <jcc_oc_base_lib/JingtumWallet.h>
 #import <jcc_oc_base_lib/JTWalletManager.h>
 #import <jcc_oc_base_lib/JccChains.h>
@@ -46,6 +47,8 @@
 
 @property (nonatomic, strong) TPOSWalletDao *walletDao;
 @property (assign, nonatomic) BOOL creating;
+
+@property (nonatomic, assign) BOOL importing;
 
 @end
 
@@ -135,68 +138,59 @@
     [self injectAction];
 }
 
-- (void)injectAction
-{
-
-}
-/*
-- (IBAction)clickCreateWalletBtn:(UIButton *)sender {
+- (void)injectAction {
     
-    NSString *alertTips = @"";
- 
-    if (!self.chooseType) {
-        alertTips = [[TPOSLocalizedHelper standardHelper] stringWithKey:@"choose_wallet_chain_type"];
-    } else if (self.walletNameField.text.length == 0
-               || self.setPasswordField.text.length == 0
-               || self.confirmPwdField.text.length == 0) {
-        alertTips = [[TPOSLocalizedHelper standardHelper] stringWithKey:@"complete_info"];
-    } else if (self.setPasswordField.text.length < 8
-               || self.confirmPwdField.text.length < 8) {
-        alertTips = [[TPOSLocalizedHelper standardHelper] stringWithKey:@"at_least_8"];
-    } else if (![self.setPasswordField.text isEqualToString:self.confirmPwdField.text]) {
-        alertTips = [[TPOSLocalizedHelper standardHelper] stringWithKey:@"pwd_not_match"];
-    } else if (!self.agreenBtn.isSelected) {
-        alertTips = [[TPOSLocalizedHelper standardHelper] stringWithKey:@"read_and_agree"];
+    if (_importing) {
+        return;
     }
- 
-    if (alertTips.length > 0) {
-        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:[[TPOSLocalizedHelper standardHelper] stringWithKey:@"Tips"] message:alertTips preferredStyle:UIAlertControllerStyleAlert];
-        
-        UIAlertAction *confirmAction = [UIAlertAction actionWithTitle:[[TPOSLocalizedHelper standardHelper] stringWithKey:@"confirm"] style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-            [alertController dismissViewControllerAnimated:YES completion:nil];
+    
+    __block BOOL exist = NO;
+    NSString *privateKey = @"ssaqviQbtBbsZEYzzstS2uVgXfsMC";
+    [self.walletDao findAllWithComplement:^(NSArray<TPOSWalletModel *> *walletModels) {
+        [walletModels enumerateObjectsUsingBlock:^(TPOSWalletModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            if ([obj.privateKey isEqualToString:privateKey]) {
+                exist = YES;
+                *stop = YES;
+            }
         }];
-        
-        [alertController addAction:confirmAction];
-        [self presentViewController:alertController animated:YES completion:nil];
+    }];
+    
+    if (exist) {
+        [self.view makeToast:[[TPOSLocalizedHelper standardHelper] stringWithKey:@"wallet_exist"]];
         return;
     }
     
     __weak typeof(self) weakSelf = self;
     
-    [SVProgressHUD showWithStatus:nil];
-    self.creating = YES;
+    [SVProgressHUD showWithStatus:[[TPOSLocalizedHelper standardHelper] stringWithKey:@"importing"]];
+    
+    NSString *pkString = @"ssaqviQbtBbsZEYzzstS2uVgXfsMC";
+    
+    _importing = YES;
     [self checkStartButtonStatus];
+    
     if ([ethChain isEqualToString:_blockchain.hid]) {
-        //ETH
-        [[TPOSWeb3Handler sharedManager] createMnemonicWalletWithDerivePath:nil callback:^(id responseObject) {
+        if (![pkString hasPrefix:@"0x"]) {
+            pkString = [NSString stringWithFormat:@"0x%@",pkString];
+        }
+        [[TPOSWeb3Handler sharedManager] retrieveAccoutWithPrivateKey:pkString callBack:^(id responseObject) {
             NSString *address = responseObject[@"address"];
             NSString *privateKey = responseObject[@"privateKey"];
-            NSString *mnemonic = responseObject[@"mnemonic"];
-            if (address && privateKey && mnemonic) {
-                [weakSelf createWalletToServerWithAddress:address toLocalWithPrivateKey:privateKey mnemonic:mnemonic blockchainId:ethChain];
+            if (address && privateKey) {
+                [weakSelf createWalletToServerWithAddress:address toLocalWithPrivateKey:privateKey mnemonic:nil blockchainId:ethChain];
             } else {
                 [SVProgressHUD showErrorWithStatus:[[TPOSLocalizedHelper standardHelper] stringWithKey:@"import_fail"]];
-                weakSelf.creating = NO;
+                weakSelf.importing = NO;
                 [weakSelf checkStartButtonStatus];
             }
         }];
     } else if ([swtcChain isEqualToString:_blockchain.hid]) {
-        [[JTWalletManager shareInstance] createWallet:SWTC_CHAIN completion:^(NSError *error, JingtumWallet *wallet) {
+        [[JTWalletManager shareInstance] importSecret:pkString chain:SWTC_CHAIN completion:^(NSError *error, JingtumWallet *wallet) {
             if (!error) {
                 [weakSelf createWalletToServerWithAddress:wallet.address toLocalWithPrivateKey:wallet.secret mnemonic:nil blockchainId:swtcChain];
             } else {
                 [SVProgressHUD showErrorWithStatus:[[TPOSLocalizedHelper standardHelper] stringWithKey:@"import_fail"]];
-                weakSelf.creating = NO;
+                weakSelf.importing = NO;
                 [weakSelf checkStartButtonStatus];
             }
         }];
@@ -204,54 +198,43 @@
 }
 
 - (void)createWalletToServerWithAddress:(NSString *)address toLocalWithPrivateKey:(NSString *)privateKey mnemonic:(NSString *)mnemonic blockchainId:(NSString *)blockchainId {
+    NSLog(@"start Import");
     NSString *walletName = self.walletNameField.text;
-    NSString *password = self.setPasswordField.text;
-    NSString *passwordPrivate = [password tb_md5];
-    NSString *enPrivateKey = [privateKey tb_encodeStringWithKey:passwordPrivate];
-    NSString *tips = self.commentLabel.text;
+    NSString *password = [self.setPasswordField.text tb_md5];
+    NSString *enprivateKey = [privateKey tb_encodeStringWithKey:password];
+    NSString *hit = @"";
     __weak typeof(self) weakSelf = self;
+    weakSelf.importing = NO;
     NSTimeInterval milisecondedDate = ([[NSDate date] timeIntervalSince1970] * 1000);
     NSString *walletId = [NSString stringWithFormat:@"%.0f", milisecondedDate];
     TPOSWalletModel *walletModel = [TPOSWalletModel new];
     walletModel.walletName = walletName;
     walletModel.address = address;
-    walletModel.privateKey = enPrivateKey;
-    walletModel.password = passwordPrivate;
-    walletModel.passwordTips = tips;
+    walletModel.privateKey = enprivateKey;
+    walletModel.password = password;
+    walletModel.passwordTips = hit;
     walletModel.walletId = walletId;
-    walletModel.mnemonic = [mnemonic tb_encodeStringWithKey:passwordPrivate];
+    walletModel.mnemonic = mnemonic;
     walletModel.blockChainId = blockchainId;
     walletModel.dbVersion = kDBVersion;
+    walletModel.backup = YES;
     uint32_t index = arc4random()%5+1;
     walletModel.walletIcon = [NSString stringWithFormat:@"icon_wallet_avatar_%u",index];
     //存到本地
     [weakSelf.walletDao addWalletWithWalletModel:walletModel complement:^(BOOL success) {
         if (success) {
-            [TPOSThreadUtils runOnMainThread:^{
-                [SVProgressHUD showSuccessWithStatus:[[TPOSLocalizedHelper standardHelper] stringWithKey:@"create_succ"]];
-                weakSelf.creating = NO;
-                [weakSelf pushToBackupWalletWithWalletModel:walletModel];
-            }];
-        }else {
-            [SVProgressHUD showErrorWithStatus:[[TPOSLocalizedHelper standardHelper] stringWithKey:@"create_fail"]];
-            weakSelf.creating = NO;
+            [SVProgressHUD showSuccessWithStatus:[[TPOSLocalizedHelper standardHelper] stringWithKey:@"import_succ"]];
+            [[NSNotificationCenter defaultCenter] postNotificationName:kCreateWalletNotification object:walletModel];
+            [weakSelf responseLeftButton];
+        } else {
+            [SVProgressHUD showErrorWithStatus:[[TPOSLocalizedHelper standardHelper] stringWithKey:@"import_fail"]];
+            weakSelf.importing = NO;
             [weakSelf checkStartButtonStatus];
         }
     }];
+    NSLog(@"Import Ok");
 }
 
-- (void)pushToBackupWalletWithWalletModel:(TPOSWalletModel *)walletModel {
-    if (_ignoreBackup) {
-        [[NSNotificationCenter defaultCenter] postNotificationName:kCreateWalletNotification object:walletModel];
-        [self responseLeftButton];
-        return;
-    }
-    [TPOSBackupAlert showWithWalletModel:walletModel inView:self.view.window.rootViewController.view navigation:(id)self.view.window.rootViewController];
-    
-    [[NSNotificationCenter defaultCenter] postNotificationName:kCreateWalletNotification object:walletModel];
-    [self responseLeftButton];
-}
-*/
 #pragma mark - UITextViewDelegate
 
 - (void)textFieldDidChanged:(UITextField *)textfield
@@ -276,4 +259,10 @@
     }
 }
 
+- (TPOSWalletDao *)walletDao {
+    if (!_walletDao) {
+        _walletDao = [TPOSWalletDao new];
+    }
+    return _walletDao;
+}
 @end
