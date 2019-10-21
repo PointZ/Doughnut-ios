@@ -10,9 +10,9 @@
 #import "NSData+Hash.h"
 #import "NSString+Base58.h"
 #import "WalletManage.h"
-#import <Transaction.h>
-#import <Wallet.h>
-#import <Remote.h>
+#import "Transaction.h"
+#import "Wallet.h"
+#import "Remote.h"
 
 @interface WalletManage ()
 

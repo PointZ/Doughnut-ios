@@ -10,8 +10,8 @@
 #import "SocketRocketUtility.h"
 #import "NSData+Hash.h"
 #import "NSString+Base58.h"
-#import <Wallet.h>
-#import <Remote.h>
+#import "Wallet.h"
+#import "Remote.h"
 #import "WalletUserDefaults.h"
 
 @interface WalletManage : NSObject

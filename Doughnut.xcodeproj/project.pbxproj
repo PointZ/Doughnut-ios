@@ -206,6 +206,28 @@
 		D0F5E117201C9CB700C60EA6 /* LocalAuthentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0F5E116201C9CB700C60EA6 /* LocalAuthentication.framework */; };
 		E9463C3E232731D50021D3EB /* TPOSKeystoreImportWalletViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E9463C3C232731D50021D3EB /* TPOSKeystoreImportWalletViewController.m */; };
 		E9463C3F232731D50021D3EB /* TPOSKeystoreImportWalletViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9463C3D232731D50021D3EB /* TPOSKeystoreImportWalletViewController.xib */; };
+		E94AA8A6235D9DC0009C6F2C /* KeccakNISTInterface.c in Sources */ = {isa = PBXBuildFile; fileRef = E94AA875235D9DC0009C6F2C /* KeccakNISTInterface.c */; };
+		E94AA8A7235D9DC0009C6F2C /* NASHA3.m in Sources */ = {isa = PBXBuildFile; fileRef = E94AA876235D9DC0009C6F2C /* NASHA3.m */; };
+		E94AA8A8235D9DC0009C6F2C /* Serializer.m in Sources */ = {isa = PBXBuildFile; fileRef = E94AA877235D9DC0009C6F2C /* Serializer.m */; };
+		E94AA8A9235D9DC0009C6F2C /* KeyStore.m in Sources */ = {isa = PBXBuildFile; fileRef = E94AA878235D9DC0009C6F2C /* KeyStore.m */; };
+		E94AA8AA235D9DC0009C6F2C /* Remote.m in Sources */ = {isa = PBXBuildFile; fileRef = E94AA879235D9DC0009C6F2C /* Remote.m */; };
+		E94AA8AB235D9DC0009C6F2C /* Wallet.m in Sources */ = {isa = PBXBuildFile; fileRef = E94AA87C235D9DC0009C6F2C /* Wallet.m */; };
+		E94AA8AC235D9DC0009C6F2C /* Keypairs.m in Sources */ = {isa = PBXBuildFile; fileRef = E94AA87E235D9DC0009C6F2C /* Keypairs.m */; };
+		E94AA8AD235D9DC0009C6F2C /* Seed.m in Sources */ = {isa = PBXBuildFile; fileRef = E94AA87F235D9DC0009C6F2C /* Seed.m */; };
+		E94AA8AE235D9DC0009C6F2C /* NSString+Base58.m in Sources */ = {isa = PBXBuildFile; fileRef = E94AA880235D9DC0009C6F2C /* NSString+Base58.m */; };
+		E94AA8AF235D9DC0009C6F2C /* NSData+Hash.m in Sources */ = {isa = PBXBuildFile; fileRef = E94AA882235D9DC0009C6F2C /* NSData+Hash.m */; };
+		E94AA8B0235D9DC0009C6F2C /* NSMutableData+Bitcoin.m in Sources */ = {isa = PBXBuildFile; fileRef = E94AA885235D9DC0009C6F2C /* NSMutableData+Bitcoin.m */; };
+		E94AA8B1235D9DC0009C6F2C /* NSData+Bitcoin.m in Sources */ = {isa = PBXBuildFile; fileRef = E94AA886235D9DC0009C6F2C /* NSData+Bitcoin.m */; };
+		E94AA8B2235D9DC0009C6F2C /* NADigest.m in Sources */ = {isa = PBXBuildFile; fileRef = E94AA889235D9DC0009C6F2C /* NADigest.m */; };
+		E94AA8B3235D9DC0009C6F2C /* Transaction.m in Sources */ = {isa = PBXBuildFile; fileRef = E94AA88A235D9DC0009C6F2C /* Transaction.m */; };
+		E94AA8B4235D9DC0009C6F2C /* NSString+sha.m in Sources */ = {isa = PBXBuildFile; fileRef = E94AA893235D9DC0009C6F2C /* NSString+sha.m */; };
+		E94AA8B5235D9DC0009C6F2C /* NAKeccak.m in Sources */ = {isa = PBXBuildFile; fileRef = E94AA894235D9DC0009C6F2C /* NAKeccak.m */; };
+		E94AA8B6235D9DC0009C6F2C /* TumAmount.m in Sources */ = {isa = PBXBuildFile; fileRef = E94AA896235D9DC0009C6F2C /* TumAmount.m */; };
+		E94AA8B7235D9DC0009C6F2C /* KeccakF-1600-opt32.c in Sources */ = {isa = PBXBuildFile; fileRef = E94AA89B235D9DC0009C6F2C /* KeccakF-1600-opt32.c */; };
+		E94AA8B8235D9DC0009C6F2C /* sha3.c in Sources */ = {isa = PBXBuildFile; fileRef = E94AA89E235D9DC0009C6F2C /* sha3.c */; };
+		E94AA8B9235D9DC0009C6F2C /* KeyStoreFile.m in Sources */ = {isa = PBXBuildFile; fileRef = E94AA8A2235D9DC0009C6F2C /* KeyStoreFile.m */; };
+		E94AA8BA235D9DC0009C6F2C /* KeccakSponge.c in Sources */ = {isa = PBXBuildFile; fileRef = E94AA8A3235D9DC0009C6F2C /* KeccakSponge.c */; };
+		E94AA8BE235D9DE2009C6F2C /* SocketRocketUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = E94AA8BC235D9DE2009C6F2C /* SocketRocketUtility.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -553,6 +575,57 @@
 		E9463C3B232731D50021D3EB /* TPOSKeystoreImportWalletViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPOSKeystoreImportWalletViewController.h; sourceTree = "<group>"; };
 		E9463C3C232731D50021D3EB /* TPOSKeystoreImportWalletViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPOSKeystoreImportWalletViewController.m; sourceTree = "<group>"; };
 		E9463C3D232731D50021D3EB /* TPOSKeystoreImportWalletViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TPOSKeystoreImportWalletViewController.xib; sourceTree = "<group>"; };
+		E94AA875235D9DC0009C6F2C /* KeccakNISTInterface.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = KeccakNISTInterface.c; sourceTree = "<group>"; };
+		E94AA876235D9DC0009C6F2C /* NASHA3.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NASHA3.m; sourceTree = "<group>"; };
+		E94AA877235D9DC0009C6F2C /* Serializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Serializer.m; sourceTree = "<group>"; };
+		E94AA878235D9DC0009C6F2C /* KeyStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeyStore.m; sourceTree = "<group>"; };
+		E94AA879235D9DC0009C6F2C /* Remote.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Remote.m; sourceTree = "<group>"; };
+		E94AA87A235D9DC0009C6F2C /* NSString+sha.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+sha.h"; sourceTree = "<group>"; };
+		E94AA87B235D9DC0009C6F2C /* NAKeccak.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAKeccak.h; sourceTree = "<group>"; };
+		E94AA87C235D9DC0009C6F2C /* Wallet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Wallet.m; sourceTree = "<group>"; };
+		E94AA87D235D9DC0009C6F2C /* sha3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sha3.h; sourceTree = "<group>"; };
+		E94AA87E235D9DC0009C6F2C /* Keypairs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Keypairs.m; sourceTree = "<group>"; };
+		E94AA87F235D9DC0009C6F2C /* Seed.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Seed.m; sourceTree = "<group>"; };
+		E94AA880235D9DC0009C6F2C /* NSString+Base58.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Base58.m"; sourceTree = "<group>"; };
+		E94AA881235D9DC0009C6F2C /* KeccakF-1600-32.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "KeccakF-1600-32.h"; sourceTree = "<group>"; };
+		E94AA882235D9DC0009C6F2C /* NSData+Hash.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+Hash.m"; sourceTree = "<group>"; };
+		E94AA883235D9DC0009C6F2C /* KeccakF-1600-interface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "KeccakF-1600-interface.h"; sourceTree = "<group>"; };
+		E94AA884235D9DC0009C6F2C /* TumAmount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TumAmount.h; sourceTree = "<group>"; };
+		E94AA885235D9DC0009C6F2C /* NSMutableData+Bitcoin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableData+Bitcoin.m"; sourceTree = "<group>"; };
+		E94AA886235D9DC0009C6F2C /* NSData+Bitcoin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+Bitcoin.m"; sourceTree = "<group>"; };
+		E94AA887235D9DC0009C6F2C /* KeccakSponge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeccakSponge.h; sourceTree = "<group>"; };
+		E94AA888235D9DC0009C6F2C /* KeyStoreFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeyStoreFile.h; sourceTree = "<group>"; };
+		E94AA889235D9DC0009C6F2C /* NADigest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NADigest.m; sourceTree = "<group>"; };
+		E94AA88A235D9DC0009C6F2C /* Transaction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Transaction.m; sourceTree = "<group>"; };
+		E94AA88B235D9DC0009C6F2C /* Remote.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Remote.h; sourceTree = "<group>"; };
+		E94AA88C235D9DC0009C6F2C /* KeyStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeyStore.h; sourceTree = "<group>"; };
+		E94AA88D235D9DC0009C6F2C /* Serializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Serializer.h; sourceTree = "<group>"; };
+		E94AA88E235D9DC0009C6F2C /* NASHA3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NASHA3.h; sourceTree = "<group>"; };
+		E94AA88F235D9DC0009C6F2C /* KeccakF-1600-32-s2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "KeccakF-1600-32-s2.h"; sourceTree = "<group>"; };
+		E94AA890235D9DC0009C6F2C /* brg_endian.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = brg_endian.h; sourceTree = "<group>"; };
+		E94AA891235D9DC0009C6F2C /* KeccakNISTInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeccakNISTInterface.h; sourceTree = "<group>"; };
+		E94AA892235D9DC0009C6F2C /* Wallet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Wallet.h; sourceTree = "<group>"; };
+		E94AA893235D9DC0009C6F2C /* NSString+sha.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+sha.m"; sourceTree = "<group>"; };
+		E94AA894235D9DC0009C6F2C /* NAKeccak.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NAKeccak.m; sourceTree = "<group>"; };
+		E94AA895235D9DC0009C6F2C /* KeccakF-1600-opt32-settings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "KeccakF-1600-opt32-settings.h"; sourceTree = "<group>"; };
+		E94AA896235D9DC0009C6F2C /* TumAmount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TumAmount.m; sourceTree = "<group>"; };
+		E94AA897235D9DC0009C6F2C /* NSData+Hash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+Hash.h"; sourceTree = "<group>"; };
+		E94AA898235D9DC0009C6F2C /* NSString+Base58.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Base58.h"; sourceTree = "<group>"; };
+		E94AA899235D9DC0009C6F2C /* Seed.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Seed.h; sourceTree = "<group>"; };
+		E94AA89A235D9DC0009C6F2C /* KeccakF-1600-unrolling.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "KeccakF-1600-unrolling.h"; sourceTree = "<group>"; };
+		E94AA89B235D9DC0009C6F2C /* KeccakF-1600-opt32.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = "KeccakF-1600-opt32.c"; sourceTree = "<group>"; };
+		E94AA89C235D9DC0009C6F2C /* KeccakF-1600-32-s1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "KeccakF-1600-32-s1.h"; sourceTree = "<group>"; };
+		E94AA89D235D9DC0009C6F2C /* Keypairs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Keypairs.h; sourceTree = "<group>"; };
+		E94AA89E235D9DC0009C6F2C /* sha3.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = sha3.c; sourceTree = "<group>"; };
+		E94AA89F235D9DC0009C6F2C /* KeccakF-1600-32-rvk.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "KeccakF-1600-32-rvk.h"; sourceTree = "<group>"; };
+		E94AA8A0235D9DC0009C6F2C /* Transaction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Transaction.h; sourceTree = "<group>"; };
+		E94AA8A1235D9DC0009C6F2C /* NADigest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NADigest.h; sourceTree = "<group>"; };
+		E94AA8A2235D9DC0009C6F2C /* KeyStoreFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeyStoreFile.m; sourceTree = "<group>"; };
+		E94AA8A3235D9DC0009C6F2C /* KeccakSponge.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = KeccakSponge.c; sourceTree = "<group>"; };
+		E94AA8A4235D9DC0009C6F2C /* NSData+Bitcoin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+Bitcoin.h"; sourceTree = "<group>"; };
+		E94AA8A5235D9DC0009C6F2C /* NSMutableData+Bitcoin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableData+Bitcoin.h"; sourceTree = "<group>"; };
+		E94AA8BC235D9DE2009C6F2C /* SocketRocketUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SocketRocketUtility.m; sourceTree = "<group>"; };
+		E94AA8BD235D9DE2009C6F2C /* SocketRocketUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocketRocketUtility.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -580,13 +653,14 @@
 				487DEF35E211EB5EED58316F /* Pods-Doughnut.debug.xcconfig */,
 				7FF38AAB9CD7AE76B63FEF2E /* Pods-Doughnut.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
 		2CE5C7EC1FF8A2DB008AB801 = {
 			isa = PBXGroup;
 			children = (
+				E94AA8BB235D9DE2009C6F2C /* WebSocket */,
+				E94AA874235D9DC0009C6F2C /* jingtum-lib */,
 				2CE5C7F71FF8A2DB008AB801 /* Doughnut */,
 				2CE5C8121FF8A364008AB801 /* Frameworks */,
 				2CE5C7F61FF8A2DB008AB801 /* Products */,
@@ -1245,25 +1319,24 @@
 			isa = PBXGroup;
 			children = (
 				B65805402305635900F3380B /* mian */,
-				9E42CAAC21B4FFC900267076 /* TPOSWalletManagerViewController.xib */,
 				D063A7AB218E022800750001 /* TPOSEditWalletViewController.xib */,
 				D063A7AC218E022800750001 /* TPOSEditWalletViewController.h */,
-				D063A7AE218E022800750001 /* TPOSWalletManagerViewController.m */,
+				D063A7BE218E022800750001 /* TPOSEditWalletViewController.m */,
+				D063A7DE218E022800750001 /* TPOSSettingViewController.h */,
 				D063A7AF218E022800750001 /* TPOSSettingViewController.m */,
 				D063A7B1218E022800750001 /* TPOSAboutUsViewController.h */,
-				D063A7B5218E022800750001 /* TPOSExchangeWalletVewController.h */,
-				D063A7B7218E022800750001 /* TPOSEditPasswordViewController.xib */,
-				D063A7B8218E022800750001 /* TPOSEditPasswordViewController.h */,
-				D063A7B9218E022800750001 /* TPOSLanguageViewController.h */,
-				D063A7BA218E022800750001 /* TPOSTransactionRecoderViewController.h */,
-				D063A7BE218E022800750001 /* TPOSEditWalletViewController.m */,
-				D063A7BF218E022800750001 /* TPOSExchangeWalletVewController.m */,
 				D063A7C0218E022800750001 /* TPOSAboutUsViewController.m */,
-				D063A7C1218E022800750001 /* Wallet */,
-				D063A7DE218E022800750001 /* TPOSSettingViewController.h */,
-				D063A7DF218E022800750001 /* TPOSWalletManagerViewController.h */,
+				D063A7B5218E022800750001 /* TPOSExchangeWalletVewController.h */,
+				D063A7BF218E022800750001 /* TPOSExchangeWalletVewController.m */,
+				D063A7B8218E022800750001 /* TPOSEditPasswordViewController.h */,
 				D063A7E0218E022800750001 /* TPOSEditPasswordViewController.m */,
+				D063A7B7218E022800750001 /* TPOSEditPasswordViewController.xib */,
+				D063A7BA218E022800750001 /* TPOSTransactionRecoderViewController.h */,
 				D063A7E2218E022800750001 /* TPOSTransactionRecoderViewController.m */,
+				D063A7DF218E022800750001 /* TPOSWalletManagerViewController.h */,
+				D063A7AE218E022800750001 /* TPOSWalletManagerViewController.m */,
+				9E42CAAC21B4FFC900267076 /* TPOSWalletManagerViewController.xib */,
+				D063A7B9218E022800750001 /* TPOSLanguageViewController.h */,
 				D063A7E3218E022800750001 /* TPOSLanguageViewController.m */,
 				B65804E92302BBF400F3380B /* DOSPointSettingViewController.h */,
 				B65804EA2302BBF400F3380B /* DOSPointSettingViewController.m */,
@@ -1271,6 +1344,7 @@
 				B65804EE2302BD6700F3380B /* DOSCopyrightViewController.h */,
 				B65804EF2302BD6700F3380B /* DOSCopyrightViewController.m */,
 				B65804F02302BD6700F3380B /* DOSCopyrightViewController.xib */,
+				D063A7C1218E022800750001 /* Wallet */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1416,6 +1490,73 @@
 				E9463C3D232731D50021D3EB /* TPOSKeystoreImportWalletViewController.xib */,
 			);
 			path = Keystore;
+			sourceTree = "<group>";
+		};
+		E94AA874235D9DC0009C6F2C /* jingtum-lib */ = {
+			isa = PBXGroup;
+			children = (
+				E94AA875235D9DC0009C6F2C /* KeccakNISTInterface.c */,
+				E94AA876235D9DC0009C6F2C /* NASHA3.m */,
+				E94AA877235D9DC0009C6F2C /* Serializer.m */,
+				E94AA878235D9DC0009C6F2C /* KeyStore.m */,
+				E94AA879235D9DC0009C6F2C /* Remote.m */,
+				E94AA87A235D9DC0009C6F2C /* NSString+sha.h */,
+				E94AA87B235D9DC0009C6F2C /* NAKeccak.h */,
+				E94AA87C235D9DC0009C6F2C /* Wallet.m */,
+				E94AA87D235D9DC0009C6F2C /* sha3.h */,
+				E94AA87E235D9DC0009C6F2C /* Keypairs.m */,
+				E94AA87F235D9DC0009C6F2C /* Seed.m */,
+				E94AA880235D9DC0009C6F2C /* NSString+Base58.m */,
+				E94AA881235D9DC0009C6F2C /* KeccakF-1600-32.h */,
+				E94AA882235D9DC0009C6F2C /* NSData+Hash.m */,
+				E94AA883235D9DC0009C6F2C /* KeccakF-1600-interface.h */,
+				E94AA884235D9DC0009C6F2C /* TumAmount.h */,
+				E94AA885235D9DC0009C6F2C /* NSMutableData+Bitcoin.m */,
+				E94AA886235D9DC0009C6F2C /* NSData+Bitcoin.m */,
+				E94AA887235D9DC0009C6F2C /* KeccakSponge.h */,
+				E94AA888235D9DC0009C6F2C /* KeyStoreFile.h */,
+				E94AA889235D9DC0009C6F2C /* NADigest.m */,
+				E94AA88A235D9DC0009C6F2C /* Transaction.m */,
+				E94AA88B235D9DC0009C6F2C /* Remote.h */,
+				E94AA88C235D9DC0009C6F2C /* KeyStore.h */,
+				E94AA88D235D9DC0009C6F2C /* Serializer.h */,
+				E94AA88E235D9DC0009C6F2C /* NASHA3.h */,
+				E94AA88F235D9DC0009C6F2C /* KeccakF-1600-32-s2.h */,
+				E94AA890235D9DC0009C6F2C /* brg_endian.h */,
+				E94AA891235D9DC0009C6F2C /* KeccakNISTInterface.h */,
+				E94AA892235D9DC0009C6F2C /* Wallet.h */,
+				E94AA893235D9DC0009C6F2C /* NSString+sha.m */,
+				E94AA894235D9DC0009C6F2C /* NAKeccak.m */,
+				E94AA895235D9DC0009C6F2C /* KeccakF-1600-opt32-settings.h */,
+				E94AA896235D9DC0009C6F2C /* TumAmount.m */,
+				E94AA897235D9DC0009C6F2C /* NSData+Hash.h */,
+				E94AA898235D9DC0009C6F2C /* NSString+Base58.h */,
+				E94AA899235D9DC0009C6F2C /* Seed.h */,
+				E94AA89A235D9DC0009C6F2C /* KeccakF-1600-unrolling.h */,
+				E94AA89B235D9DC0009C6F2C /* KeccakF-1600-opt32.c */,
+				E94AA89C235D9DC0009C6F2C /* KeccakF-1600-32-s1.h */,
+				E94AA89D235D9DC0009C6F2C /* Keypairs.h */,
+				E94AA89E235D9DC0009C6F2C /* sha3.c */,
+				E94AA89F235D9DC0009C6F2C /* KeccakF-1600-32-rvk.h */,
+				E94AA8A0235D9DC0009C6F2C /* Transaction.h */,
+				E94AA8A1235D9DC0009C6F2C /* NADigest.h */,
+				E94AA8A2235D9DC0009C6F2C /* KeyStoreFile.m */,
+				E94AA8A3235D9DC0009C6F2C /* KeccakSponge.c */,
+				E94AA8A4235D9DC0009C6F2C /* NSData+Bitcoin.h */,
+				E94AA8A5235D9DC0009C6F2C /* NSMutableData+Bitcoin.h */,
+			);
+			name = "jingtum-lib";
+			path = "Doughnut/jingtum-lib";
+			sourceTree = "<group>";
+		};
+		E94AA8BB235D9DE2009C6F2C /* WebSocket */ = {
+			isa = PBXGroup;
+			children = (
+				E94AA8BC235D9DE2009C6F2C /* SocketRocketUtility.m */,
+				E94AA8BD235D9DE2009C6F2C /* SocketRocketUtility.h */,
+			);
+			name = WebSocket;
+			path = Doughnut/WebSocket;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1593,6 +1734,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D063A84F218E022800750001 /* TPOSMessageCenterCell.m in Sources */,
+				E94AA8A7235D9DC0009C6F2C /* NASHA3.m in Sources */,
 				D063A563218E005E00750001 /* UIColor+Hex.m in Sources */,
 				D063A857218E022800750001 /* TPOSAboutUsCell.m in Sources */,
 				D063A711218E006A00750001 /* TPOSH5ViewController.m in Sources */,
@@ -1606,10 +1748,12 @@
 				D063A6CB218E006900750001 /* TPOSScanQRCodeViewController.m in Sources */,
 				D063A6C3218E006900750001 /* TPOSTransactionViewController.m in Sources */,
 				D063A851218E022800750001 /* TPOSContentView.m in Sources */,
+				E94AA8B0235D9DC0009C6F2C /* NSMutableData+Bitcoin.m in Sources */,
 				D063A849218E022800750001 /* TPOSTransactionRecoderCell.m in Sources */,
 				D063A708218E006A00750001 /* TPOSBlockChainModel.m in Sources */,
 				2CE5C7FD1FF8A2DB008AB801 /* ViewController.m in Sources */,
 				D063A6E6218E006A00750001 /* TPOSSearchTitleView.m in Sources */,
+				E94AA8B8235D9DC0009C6F2C /* sha3.c in Sources */,
 				D063A6E0218E006A00750001 /* TPOSTransactionHighOptionView.m in Sources */,
 				D063A82D218E022800750001 /* TPOSMemonicImportWalletViewController.m in Sources */,
 				D063A6C7218E006900750001 /* TPOSTokenDetailViewController.m in Sources */,
@@ -1619,23 +1763,29 @@
 				D063A573218E005E00750001 /* NSString+TPOS.m in Sources */,
 				D063A521218E005400750001 /* SDCycleScrollView.m in Sources */,
 				D063A490218E001500750001 /* TPOSJTPayment.m in Sources */,
+				E94AA8A6235D9DC0009C6F2C /* KeccakNISTInterface.c in Sources */,
 				D063A70D218E006A00750001 /* TPOSShareView.m in Sources */,
 				D063A6E7218E006A00750001 /* TPOSAssetHeader.m in Sources */,
 				D063A837218E022800750001 /* TPOSCreateMemonicViewController.m in Sources */,
 				D063A51D218E005400750001 /* TPOSAlertViewBaseAnimation.m in Sources */,
+				E94AA8AE235D9DC0009C6F2C /* NSString+Base58.m in Sources */,
 				D063A83A218E022800750001 /* TPOSEditPasswordViewController.m in Sources */,
 				D063A4AA218E003300750001 /* TPOSApiClient.m in Sources */,
 				D063A83C218E022800750001 /* TPOSLanguageViewController.m in Sources */,
 				D063A565218E005E00750001 /* UIViewController+TPOS.m in Sources */,
 				D063A6D6218E006900750001 /* TPOSTransactionNormalOptionView.m in Sources */,
 				D063A561218E005E00750001 /* UIImage+TPOS.m in Sources */,
+				E94AA8B4235D9DC0009C6F2C /* NSString+sha.m in Sources */,
 				D063A571218E005E00750001 /* NSObject+TPOS.m in Sources */,
 				D063A832218E022800750001 /* TPOSCreateWalletViewController.m in Sources */,
 				D063A524218E005400750001 /* TADotView.m in Sources */,
+				E94AA8AC235D9DC0009C6F2C /* Keypairs.m in Sources */,
+				E94AA8BE235D9DE2009C6F2C /* SocketRocketUtility.m in Sources */,
 				D063A51B218E005400750001 /* TPOSAuthID.m in Sources */,
 				D063A828218E022800750001 /* TPOSExchangeWalletVewController.m in Sources */,
 				D063A6F8218E006A00750001 /* TPOSPageContentView.m in Sources */,
 				D063A6CE218E006900750001 /* TPOSAssetViewController.m in Sources */,
+				E94AA8B1235D9DC0009C6F2C /* NSData+Bitcoin.m in Sources */,
 				D063A568218E005E00750001 /* UIImage+ImageSize.m in Sources */,
 				D063A844218E022800750001 /* TPOSWalletManagerCell.m in Sources */,
 				D063A776218E00C800750001 /* TPOSEnterAuthViewController.m in Sources */,
@@ -1644,6 +1794,8 @@
 				D063A83B218E022800750001 /* TPOSTransactionRecoderViewController.m in Sources */,
 				D063A56B218E005E00750001 /* SGQRCodeScanManager.m in Sources */,
 				D063A567218E005E00750001 /* TPOSThreadUtils.m in Sources */,
+				E94AA8B6235D9DC0009C6F2C /* TumAmount.m in Sources */,
+				E94AA8AB235D9DC0009C6F2C /* Wallet.m in Sources */,
 				D063A560218E005E00750001 /* UINavigationBar+TPOS.m in Sources */,
 				D063A78D218E00D000750001 /* TPOSGuideCCell.m in Sources */,
 				D063A82B218E022800750001 /* TPOSImportWalletViewController.m in Sources */,
@@ -1657,28 +1809,35 @@
 				D063A56C218E005E00750001 /* SGQRCodeGenerateManager.m in Sources */,
 				D063A78F218E00D000750001 /* TPOSNavigationController.m in Sources */,
 				D063A6EC218E006A00750001 /* TPOSAssetCell.m in Sources */,
+				E94AA8B9235D9DC0009C6F2C /* KeyStoreFile.m in Sources */,
 				D063A7A4218E00DA00750001 /* TPOSWalletDetailDaoManager.m in Sources */,
 				D063A82A218E022800750001 /* TPOSConfirmMemonicViewController.m in Sources */,
 				D063A51F218E005400750001 /* YCFrameAnimator.m in Sources */,
 				D063A6D3218E006900750001 /* TPOSTransactionConfirmView.m in Sources */,
 				D063A6DF218E006A00750001 /* TPOSTransactionGasView.m in Sources */,
 				D063A6CC218E006900750001 /* TPOSQRCodeReceiveViewController.m in Sources */,
+				E94AA8B3235D9DC0009C6F2C /* Transaction.m in Sources */,
 				D063A6E2218E006A00750001 /* TPOSAssetPopWindow.m in Sources */,
 				D063A848218E022800750001 /* TPOSRetrivePathCell.m in Sources */,
+				E94AA8BA235D9DC0009C6F2C /* KeccakSponge.c in Sources */,
 				D063A572218E005E00750001 /* NSDate+TPOS.m in Sources */,
 				D063A575218E005E00750001 /* UIDevice+Utility.m in Sources */,
 				D063A852218E022800750001 /* TPOSPasswordView.m in Sources */,
 				D063A6F9218E006A00750001 /* TPOSAssetTopView.m in Sources */,
 				D063A55F218E005E00750001 /* UILabel+SpacesAdjust.m in Sources */,
+				E94AA8AD235D9DC0009C6F2C /* Seed.m in Sources */,
 				D063A822218E022800750001 /* TPOSSettingViewController.m in Sources */,
 				D063A829218E022800750001 /* TPOSAboutUsViewController.m in Sources */,
 				D063A7A1218E00DA00750001 /* TPOSBaseDao.m in Sources */,
 				2CE5C8081FF8A2DB008AB801 /* main.m in Sources */,
+				E94AA8B2235D9DC0009C6F2C /* NADigest.m in Sources */,
 				D063A562218E005E00750001 /* TPOSLocalizedHelper.m in Sources */,
 				D063A846218E022800750001 /* TPOSWalletChainCell.m in Sources */,
 				D063A83F218E022800750001 /* TPOSQRCodeResult.m in Sources */,
 				D063A56D218E005E00750001 /* TPOSQRResultHandler.m in Sources */,
+				E94AA8B7235D9DC0009C6F2C /* KeccakF-1600-opt32.c in Sources */,
 				D063A6E3218E006A00750001 /* TPOSAssetEmptyView.m in Sources */,
+				E94AA8A8235D9DC0009C6F2C /* Serializer.m in Sources */,
 				D063A838218E022800750001 /* TPOSChooseTokenSystemViewController.m in Sources */,
 				D063A78C218E00D000750001 /* TPOSGuideViewController.m in Sources */,
 				9E42CAB321B9073100267076 /* TPOSExportPrivateKeyNoteView.m in Sources */,
@@ -1688,6 +1847,7 @@
 				D063A827218E022800750001 /* TPOSEditWalletViewController.m in Sources */,
 				B65804F12302BD6700F3380B /* DOSCopyrightViewController.m in Sources */,
 				D063A830218E022800750001 /* TPOSPrivateKeyImportWalletViewController.m in Sources */,
+				E94AA8A9235D9DC0009C6F2C /* KeyStore.m in Sources */,
 				D063A710218E006A00750001 /* TPOSShareCCell.m in Sources */,
 				D063A78E218E00D000750001 /* TPOSBaseViewController.m in Sources */,
 				D063A6D1218E006900750001 /* TPOSTokenHistoryModel.m in Sources */,
@@ -1716,6 +1876,7 @@
 				D063A790218E00D000750001 /* TPOSTabBarController.m in Sources */,
 				D063A526218E005400750001 /* TAAnimatedDotView.m in Sources */,
 				D063A4A9218E003300750001 /* TPOSCommonInfoManager.m in Sources */,
+				E94AA8AF235D9DC0009C6F2C /* NSData+Hash.m in Sources */,
 				D063A6F3218E006A00750001 /* TPOSAssetChooseWalletView.m in Sources */,
 				D063A6E8218E006A00750001 /* TPOSAssetCreateWalletView.m in Sources */,
 				D063A6D2218E006900750001 /* TPOSTransactionTextField.m in Sources */,
@@ -1728,6 +1889,8 @@
 				D063A836218E022800750001 /* TPOSSelectChainTypeViewController.m in Sources */,
 				D063A833218E022800750001 /* TPOSBackupWalletViewController.m in Sources */,
 				D063A821218E022800750001 /* TPOSWalletManagerViewController.m in Sources */,
+				E94AA8B5235D9DC0009C6F2C /* NAKeccak.m in Sources */,
+				E94AA8AA235D9DC0009C6F2C /* Remote.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1840,6 +2003,7 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/Doughnut/jingtum-lib $(SRCROOT)/Doughnut/WebSocket";
 			};
 			name = Debug;
 		};
@@ -1888,6 +2052,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/Doughnut/jingtum-lib $(SRCROOT)/Doughnut/WebSocket";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -1929,7 +2094,6 @@
 					"-l\"crypto\"",
 					"-l\"icucore\"",
 					"-l\"jcc_oc_base_lib\"",
-					"-l\"jingtum-lib-objectc\"",
 					"-l\"sqlite3\"",
 					"-l\"sqlite3.0\"",
 					"-l\"ssl\"",
@@ -2004,7 +2168,6 @@
 					"-l\"crypto\"",
 					"-l\"icucore\"",
 					"-l\"jcc_oc_base_lib\"",
-					"-l\"jingtum-lib-objectc\"",
 					"-l\"sqlite3\"",
 					"-l\"sqlite3.0\"",
 					"-l\"ssl\"",

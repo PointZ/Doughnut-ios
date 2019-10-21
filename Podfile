@@ -14,6 +14,10 @@ pod 'Toast'
 pod 'Bugly'
 pod 'WechatOpenSDK'
 pod 'jcc_oc_base_lib'
-pod 'jingtum-lib-objectc'
-
+#pod 'jingtum-lib-objectc'
+pod 'JSONModel'
+pod 'SocketRocket'
+pod 'CoreBitcoin'
+pod 'NAChloride'
+#pod 'CoreBitcoin', :podspec => 'https://raw.github.com/oleganza/CoreBitcoin/master/CoreBitcoin.podspec'
 end
