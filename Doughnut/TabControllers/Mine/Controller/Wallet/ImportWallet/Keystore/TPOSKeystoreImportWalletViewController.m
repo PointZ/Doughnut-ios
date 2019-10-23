@@ -30,6 +30,9 @@
 #import <Toast/Toast.h>;
 #import <SVProgressHUD/SVProgressHUD.h>;
 
+#import "KeyStoreFile.h"
+#import "KeyStore.h"
+
 @interface TPOSKeystoreImportWalletViewController ()<UITextViewDelegate, UITextFieldDelegate>
 
 @property (weak, nonatomic) IBOutlet UILabel *keystoreHint;
@@ -143,9 +146,23 @@
     if (_importing) {
         return;
     }
+    NSString *keyStoreString = self.keystoreBg.text;
+    NSString *password  = self.setPasswordField.text;
+    NSLog(keyStoreString);
+    NSError* err = nil;
+    KeyStoreFileModel* keystore = [[KeyStoreFileModel alloc] initWithString:keyStoreString error:&err];
+    Wallet *decryptEthECKeyPair = [KeyStore decrypt:password wallerFile:password];
+    Keypairs *temp = [decryptEthECKeyPair keypairs] ;
+    NSData *bytes = [[temp pub] BTCHash160];
+    BTCAddress *btcAddress = [BTCPublicKeyAddress addressWithData:bytes];
+    NSString *address = btcAddress.base58String;
+    
+    NSString *privateKey = [decryptEthECKeyPair secret];
+    NSLog(@"address: %@", address);
+    NSLog(@"PrivateKey:%@",privateKey);
+    NSLog(@"%@", err.localizedDescription);
     
     __block BOOL exist = NO;
-    NSString *privateKey = @"ssaqviQbtBbsZEYzzstS2uVgXfsMC";
     [self.walletDao findAllWithComplement:^(NSArray<TPOSWalletModel *> *walletModels) {
         [walletModels enumerateObjectsUsingBlock:^(TPOSWalletModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
             if ([obj.privateKey isEqualToString:privateKey]) {
@@ -164,7 +181,7 @@
     
     [SVProgressHUD showWithStatus:[[TPOSLocalizedHelper standardHelper] stringWithKey:@"importing"]];
     
-    NSString *pkString = @"ssaqviQbtBbsZEYzzstS2uVgXfsMC";
+    NSString *pkString = privateKey;
     
     _importing = YES;
     [self checkStartButtonStatus];

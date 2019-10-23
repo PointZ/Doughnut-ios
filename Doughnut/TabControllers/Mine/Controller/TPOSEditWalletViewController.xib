@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -34,7 +32,7 @@
                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FbB-RR-6W5">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="547"/>
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="586"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wDi-P5-lcA">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="116"/>
@@ -133,8 +131,9 @@
                                         <action selector="editPasswordAction" destination="-1" eventType="touchUpInside" id="qU0-9o-cyy"/>
                                     </connections>
                                 </view>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3gA-hc-kZ5" customClass="UIControl">
-                                    <rect key="frame" x="0.0" y="317.5" width="375" height="60"/>
+                                <view contentMode="scaleToFill" id="3gA-hc-kZ5" customClass="UIControl">
+                                    <rect key="frame" x="0.0" y="318" width="375" height="60"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="导出私钥" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8tz-ym-trh">
                                             <rect key="frame" x="15" y="20.5" width="65.5" height="19.5"/>
@@ -158,12 +157,14 @@
                                         <constraint firstItem="8tz-ym-trh" firstAttribute="leading" secondItem="3gA-hc-kZ5" secondAttribute="leading" constant="15" id="vAD-Br-vhx"/>
                                         <constraint firstAttribute="height" constant="60" id="z6A-ki-PiR"/>
                                     </constraints>
+                                    <directionalEdgeInsets key="directionalLayoutMargins" top="8" leading="8" bottom="8" trailing="8"/>
                                     <connections>
-                                        <action selector="exportPrivateKeyAction" destination="-1" eventType="touchUpInside" id="LWf-OI-2be"/>
+                                        <action selector="exportPrivateKeyAction" destination="-1" eventType="touchUpInside" id="HK1-3w-2Go"/>
                                     </connections>
                                 </view>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aZu-Fc-lya">
-                                    <rect key="frame" x="15" y="414" width="345" height="47"/>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="aZu-Fc-lya">
+                                    <rect key="frame" x="15" y="453" width="345" height="47"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                     <color key="backgroundColor" red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="deviceRGB"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="47" id="3n8-mv-Faz"/>
@@ -206,16 +207,6 @@
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZiX-JB-pfD">
-                                    <rect key="frame" x="149" y="481" width="77" height="30"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                    <state key="normal" title="备份助记词">
-                                        <color key="titleColor" red="0.15686274510000001" green="0.56470588239999997" blue="0.99607843139999996" alpha="1" colorSpace="deviceRGB"/>
-                                    </state>
-                                    <connections>
-                                        <action selector="remarkAction" destination="-1" eventType="touchUpInside" id="yGX-0K-w3l"/>
-                                    </connections>
-                                </button>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l0x-rv-nH4" customClass="UIControl">
                                     <rect key="frame" x="0.0" y="173.5" width="375" height="60"/>
                                     <subviews>
@@ -267,6 +258,48 @@
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
+                                <view contentMode="scaleToFill" id="ihg-sw-kC1" customClass="UIControl">
+                                    <rect key="frame" x="0.0" y="377" width="375" height="60"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="导出钱包" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="55c-PW-T4w">
+                                            <rect key="frame" x="15" y="20.5" width="65.5" height="19.5"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_mine_arrow" translatesAutoresizingMaskIntoConstraints="NO" id="bGh-Aj-mNe">
+                                            <rect key="frame" x="333" y="22.5" width="15" height="15"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="15" id="oDb-Ew-OE5"/>
+                                                <constraint firstAttribute="height" constant="15" id="qYv-C5-rsj"/>
+                                            </constraints>
+                                        </imageView>
+                                    </subviews>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstItem="55c-PW-T4w" firstAttribute="leading" secondItem="ihg-sw-kC1" secondAttribute="leading" constant="15" id="0AS-SW-2hn"/>
+                                        <constraint firstAttribute="trailing" secondItem="bGh-Aj-mNe" secondAttribute="trailing" constant="27" id="doE-lf-bpo"/>
+                                        <constraint firstAttribute="height" constant="60" id="e0N-YV-2AE"/>
+                                        <constraint firstItem="bGh-Aj-mNe" firstAttribute="centerY" secondItem="ihg-sw-kC1" secondAttribute="centerY" id="kAZ-il-eWy"/>
+                                        <constraint firstItem="55c-PW-T4w" firstAttribute="centerY" secondItem="ihg-sw-kC1" secondAttribute="centerY" id="oXW-hd-RUf"/>
+                                    </constraints>
+                                    <directionalEdgeInsets key="directionalLayoutMargins" top="8" leading="8" bottom="8" trailing="8"/>
+                                    <connections>
+                                        <action selector="exportKeyStoreAction" destination="-1" eventType="touchUpInside" id="8mO-Q9-aMJ"/>
+                                    </connections>
+                                </view>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="ZiX-JB-pfD">
+                                    <rect key="frame" x="149" y="501" width="77" height="30"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                    <state key="normal" title="备份助记词">
+                                        <color key="titleColor" red="0.15686274510000001" green="0.56470588239999997" blue="0.99607843139999996" alpha="1" colorSpace="deviceRGB"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="remarkAction" destination="-1" eventType="touchUpInside" id="yGX-0K-w3l"/>
+                                    </connections>
+                                </button>
                             </subviews>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
@@ -308,6 +341,11 @@
                                 <constraint firstItem="aZu-Fc-lya" firstAttribute="top" secondItem="3gA-hc-kZ5" secondAttribute="bottom" constant="36.5" id="s1B-AS-3Qz"/>
                                 <constraint firstItem="AZH-hY-AAG" firstAttribute="trailing" secondItem="Peo-mx-k9D" secondAttribute="trailing" id="tko-fl-y6h"/>
                             </constraints>
+                            <variation key="default">
+                                <mask key="constraints">
+                                    <exclude reference="s1B-AS-3Qz"/>
+                                </mask>
+                            </variation>
                         </view>
                     </subviews>
                     <color key="backgroundColor" red="0.96078431372549022" green="0.96078431372549022" blue="0.97647058823529409" alpha="0.0" colorSpace="deviceRGB"/>
@@ -328,10 +366,10 @@
                 <constraint firstItem="VYH-FH-N6d" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="h5t-gh-thR"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
-            <point key="canvasLocation" x="-2141" y="-276"/>
+            <point key="canvasLocation" x="-2141.5999999999999" y="-276.61169415292358"/>
         </view>
     </objects>
     <resources>
-        <image name="icon_mine_arrow" width="30" height="30"/>
+        <image name="icon_mine_arrow" width="15" height="15"/>
     </resources>
 </document>

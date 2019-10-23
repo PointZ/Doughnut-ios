@@ -53,7 +53,7 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    
+    NSLog(@"1");
     [self rootViewController:^(UIViewController *viewController) {
         //初始化界面设置
         TPOSNavigationController *navigationController = [[TPOSNavigationController alloc] initWithRootViewController:viewController];

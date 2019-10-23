@@ -1,41 +1,39 @@
-//
-//  TPOSExportPrivateKeyNoteView.m
-//  TokenBank
-//
-//  Created by xiaoyuan on 2018/1/10.
-//  Copyright © 2018年 MarcusWoo. All rights reserved.
-//
-
-#import "TPOSExportPrivateKeyNoteView.h"
+#import "TPOSExportKeyStoreNoteView.h"
 #import "UIColor+Hex.h"
 #import "TPOSMacro.h"
 #import "TPOSWalletModel.h"
 #import "NSString+TPOS.h"
 #import "TPOSLocalizedHelper.h"
 
-#import <Toast/Toast.h>;
+#import <Toast/Toast.h>
 
-@interface TPOSExportPrivateKeyNoteView()
+#import "KeyStoreFile.h"
+#import "KeyStore.h"
+#import "NAChloride.h"
+#import "Wallet.h"
+#import "Seed.h"
+#import <CoreImage/CoreImage.h>
+
+
+@interface TPOSExportKeyStoreNoteView()
 
 @property (weak, nonatomic) IBOutlet UIView *warningView;
 
 @property (weak, nonatomic) IBOutlet UIView *keyView;
 @property (weak, nonatomic) IBOutlet UILabel *keyLabel;
 @property (weak, nonatomic) IBOutlet UIButton *copyyButton;
-@property (weak, nonatomic) IBOutlet UILabel *tipsLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *QRImage;
-
 @property (nonatomic, strong) TPOSWalletModel *walletModel;
 
 @end
 
-@implementation TPOSExportPrivateKeyNoteView
+@implementation TPOSExportKeyStoreNoteView
 
-+ (TPOSExportPrivateKeyNoteView *)exportPrivateKeyNoteViewWithWalletModel:(TPOSWalletModel *)walletModel {
-    TPOSExportPrivateKeyNoteView *exportPrivateKeyNoteView = [[NSBundle mainBundle] loadNibNamed:@"TPOSExportPrivateKeyNoteView" owner:nil options:nil].firstObject;
-    exportPrivateKeyNoteView.walletModel = walletModel;
++ (TPOSExportKeyStoreNoteView *)exportKeyStoreNoteViewWithWalletModel:(TPOSWalletModel *)walletModel {
+    TPOSExportKeyStoreNoteView *exportKeyStoreNoteView = [[NSBundle mainBundle] loadNibNamed:@"TPOSExportKeyStoreNoteView" owner:nil options:nil].firstObject;
+    exportKeyStoreNoteView.walletModel = walletModel;
     
-    return exportPrivateKeyNoteView;
+    return exportKeyStoreNoteView;
 }
 
 - (void)awakeFromNib {
@@ -47,9 +45,8 @@
     self.copyyButton.layer.cornerRadius = 5;
     self.layer.cornerRadius = 5;
     
-    CGSize size = [_tipsLabel.text boundingRectWithSize:CGSizeMake(kScreenWidth-90, MAXFLOAT) options:NSStringDrawingUsesFontLeading|NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:14]} context:nil].size;
-    CGFloat heightAddtion = (size.height-17);
-    self.frame = CGRectMake(0, 0, kScreenWidth - 40, CGRectGetHeight(self.frame) + heightAddtion);
+    //CGFloat heightAddtion = (0-17);
+    //self.frame = CGRectMake(0, 0, kScreenWidth - 40, CGRectGetHeight(self.frame) + heightAddtion);
 }
 
 - (IBAction)copyAction {
@@ -67,7 +64,17 @@
 
 - (void)setWalletModel:(TPOSWalletModel *)walletModel {
     _walletModel = walletModel;
-    _keyLabel.text = [walletModel.privateKey tb_encodeStringWithKey:walletModel.password];
+    
+    NAChlorideInit();
+    NSString *secret = [walletModel.privateKey tb_encodeStringWithKey:walletModel.password];
+    Seed * seed = [Seed alloc];
+    Keypairs *keypairs = [seed deriveKeyPair:secret];
+    Wallet *wallet = [[Wallet alloc]initWithKeypairs:keypairs private:secret];
+    
+    KeyStoreFileModel *keyStoreFile = [KeyStore createLight:walletModel.password wallet:wallet];
+    
+    _keyLabel.text = [keyStoreFile toJSONString];
+
     CIFilter *filter = [CIFilter filterWithName:@"CIQRCodeGenerator"];
     [filter setDefaults];
     NSData *data = [_keyLabel.text dataUsingEncoding:NSUTF8StringEncoding];
@@ -76,9 +83,10 @@
     
     self.QRImage.image = [UIImage imageWithCIImage:outputImage];
     
-    CGSize size = [_keyLabel.text boundingRectWithSize:CGSizeMake(kScreenWidth-90, MAXFLOAT) options:NSStringDrawingUsesFontLeading|NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:14]} context:nil].size;
-    CGFloat heightAddtion = (size.height-33.5);
-    self.frame = CGRectMake(0, 0, kScreenWidth - 40, CGRectGetHeight(self.frame) + heightAddtion);
+    //CGSize size = [_keyLabel.text boundingRectWithSize:CGSizeMake(kScreenWidth-90, MAXFLOAT) options:NSStringDrawingUsesFontLeading|NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:14]} context:nil].size;
+    //CGFloat heightAddtion = (size.height-33.5);
+    //self.frame = CGRectMake(0, 0, kScreenWidth - 40, CGRectGetHeight(self.frame) + heightAddtion);
 }
 
 @end
+

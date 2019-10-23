@@ -10,6 +10,7 @@
 #import "UIColor+Hex.h"
 #import "TPOSEditPasswordViewController.h"
 #import "TPOSExportPrivateKeyNoteView.h"
+#import "TPOSExportKeyStoreNoteView.h"
 #import "TPOSWalletModel.h"
 #import "TPOSWalletDao.h"
 #import "TPOSMacro.h"
@@ -161,6 +162,14 @@
     [self alertRequiredPasswordWithSubTilte:nil action:^{
         TPOSExportPrivateKeyNoteView *exportPrivateKeyNoteView = [TPOSExportPrivateKeyNoteView exportPrivateKeyNoteViewWithWalletModel:weakSelf.walletModel];
         [exportPrivateKeyNoteView showWithAnimate:TPOSAlertViewAnimateCenterPop inView:weakSelf.view.window];
+    }];
+}
+
+- (IBAction)exportKeyStoreAction {
+    __weak typeof(self) weakSelf = self;
+    [self alertRequiredPasswordWithSubTilte:nil action:^{
+        TPOSExportKeyStoreNoteView *exportKeyStoreNoteView = [TPOSExportKeyStoreNoteView exportKeyStoreNoteViewWithWalletModel:weakSelf.walletModel];
+        [exportKeyStoreNoteView showWithAnimate:TPOSAlertViewAnimateCenterPop inView:weakSelf.view.window];
     }];
 }
 

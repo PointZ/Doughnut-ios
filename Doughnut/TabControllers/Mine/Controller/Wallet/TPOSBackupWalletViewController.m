@@ -29,7 +29,6 @@
     self.backupBtn.layer.masksToBounds = YES;
     self.navigationItem.leftBarButtonItem = nil;
     self.navigationItem.hidesBackButton = YES;
-    
 }
 
 - (void)responseLeftButton {
