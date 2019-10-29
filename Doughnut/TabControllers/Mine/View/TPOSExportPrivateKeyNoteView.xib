@@ -100,6 +100,7 @@
             <connections>
                 <outlet property="QRImage" destination="4Qk-Iq-UuV" id="lgz-J2-shK"/>
                 <outlet property="copyyButton" destination="aW8-cb-NZh" id="ALy-7c-sH2"/>
+                <outlet property="exportPKLabel" destination="Cre-xW-DaD" id="ljv-Io-cdl"/>
                 <outlet property="keyLabel" destination="JJO-UL-LN8" id="Ghm-nX-fg7"/>
                 <outlet property="keyView" destination="gdj-io-u5z" id="3xl-Ti-pIj"/>
                 <outlet property="tipsLabel" destination="M74-wq-tD4" id="h3v-sj-WUE"/>

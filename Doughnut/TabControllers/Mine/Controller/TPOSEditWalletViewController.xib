@@ -16,6 +16,7 @@
                 <outlet property="cahngePwdLabel" destination="anE-Yn-VK7" id="I4Y-WZ-gl2"/>
                 <outlet property="copyyBtn" destination="AZH-hY-AAG" id="Bmd-iT-RaQ"/>
                 <outlet property="deleteButton" destination="aZu-Fc-lya" id="fA5-V1-0qF"/>
+                <outlet property="exportKeyStoreLabel" destination="55c-PW-T4w" id="Pam-Pe-J0J"/>
                 <outlet property="exportLabel" destination="8tz-ym-trh" id="3gr-Fu-QU1"/>
                 <outlet property="nameLabel" destination="6EI-Nu-T58" id="OyH-Ro-8ey"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>

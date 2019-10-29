@@ -21,8 +21,8 @@
 #import "TPOSQRCodeReceiveViewController.h"
 #import "TPOSBlockChainModel.h"
 
-#import <SVProgressHUD/SVProgressHUD.h>;
-#import <Toast/Toast.h>;
+#import <SVProgressHUD/SVProgressHUD.h>
+#import <Toast/Toast.h>
 
 @interface TPOSEditWalletViewController ()
 
@@ -44,6 +44,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *addrLabel;
 @property (weak, nonatomic) IBOutlet UILabel *cahngePwdLabel;
 @property (weak, nonatomic) IBOutlet UILabel *exportLabel;
+@property (weak, nonatomic) IBOutlet UILabel *exportKeyStoreLabel;
 @property (weak, nonatomic) IBOutlet UIButton *copyyBtn;
 
 
@@ -80,6 +81,7 @@
     self.addrLabel.text = [[TPOSLocalizedHelper standardHelper] stringWithKey:@"wallet_addr"];
     self.cahngePwdLabel.text = [[TPOSLocalizedHelper standardHelper] stringWithKey:@"change_pwd"];
     self.exportLabel.text = [[TPOSLocalizedHelper standardHelper] stringWithKey:@"export_pk"];
+    self.exportKeyStoreLabel.text = [[TPOSLocalizedHelper standardHelper] stringWithKey:@"export_keystore"];
     [self.copyyBtn setTitle:[[TPOSLocalizedHelper standardHelper] stringWithKey:@"addr_copy"] forState:UIControlStateNormal];
     [self.deleteButton setTitle:[[TPOSLocalizedHelper standardHelper] stringWithKey:@"wallet_delete"] forState:UIControlStateNormal];
     [self.backButton setTitle:[[TPOSLocalizedHelper standardHelper] stringWithKey:@"backup_mnem"] forState:UIControlStateNormal];

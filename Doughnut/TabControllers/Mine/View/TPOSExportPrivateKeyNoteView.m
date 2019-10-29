@@ -13,7 +13,7 @@
 #import "NSString+TPOS.h"
 #import "TPOSLocalizedHelper.h"
 
-#import <Toast/Toast.h>;
+#import <Toast/Toast.h>
 
 @interface TPOSExportPrivateKeyNoteView()
 
@@ -24,6 +24,8 @@
 @property (weak, nonatomic) IBOutlet UIButton *copyyButton;
 @property (weak, nonatomic) IBOutlet UILabel *tipsLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *QRImage;
+
+@property (weak, nonatomic) IBOutlet UILabel *exportPKLabel;
 
 @property (nonatomic, strong) TPOSWalletModel *walletModel;
 

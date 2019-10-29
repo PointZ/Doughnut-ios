@@ -63,7 +63,13 @@
     [self setupSubviews];
 }
 - (void)changeLanguage {
+    self.nameLabel.text = [[TPOSLocalizedHelper standardHelper] stringWithKey:@"wallet_name"];
+    
+    self.pwdLabel.text = [[TPOSLocalizedHelper standardHelper] stringWithKey:@"input_pwd"];
+    
     self.keystoreHint.text = [[TPOSLocalizedHelper standardHelper] stringWithKey:@"keystore_hint"];
+    
+    self.keystorePlaceholder.text = [[TPOSLocalizedHelper standardHelper] stringWithKey:@"keystore_placeholder"];
     
     [self.startImportButton setTitle:[[TPOSLocalizedHelper standardHelper] stringWithKey:@"import_start"] forState:UIControlStateNormal];
     
